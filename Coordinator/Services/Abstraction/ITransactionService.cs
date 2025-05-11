@@ -2,9 +2,11 @@
 {
     public interface ITransactionService
     {
-        Task<Guid> CreateTransaction();
-        Task PrepareService(Guid transactionId);
-        Task<bool> CheckReadyService(Guid transactionId);
-
+        Task<Guid> CreateTransactionAsync();
+        Task PrepareServiceAsync(Guid transactionId);
+        Task<bool> CheckReadyServiceAsync(Guid transactionId);
+        Task CommitAsync(Guid transactionId);
+        Task<bool> CheckTransactionStateServicesAsync(Guid transactionId);
+        Task RollbackAsync(Guid transactionId);
     }
 }
