@@ -9,17 +9,20 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+app.MapGet("/ready", () =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
+    Console.WriteLine("Payment service is ready");
+    return true;
+});
+app.MapGet("/commit", () =>
+{
+    Console.WriteLine("Payment service is commited");
+    return true;
+});
+app.MapGet("/rollback", () =>
+{
+    Console.WriteLine("Payment service is rollbacked");
+    return true;
+});
 
 app.Run();
