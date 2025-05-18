@@ -5,6 +5,6 @@
         public Guid Id { get; set; }
         public string Name { get; set; }
 
-        ICollection<NodeState> NodeStates { get; set; } 
+        public ICollection<NodeState> NodeStates { get; set; }
     }
 }

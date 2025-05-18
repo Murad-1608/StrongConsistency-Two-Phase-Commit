@@ -11,7 +11,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<TwoPhaseCommitContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer"));
-});
+}); 
 
 builder.Services.AddHttpClient("OrderApi", client => client.BaseAddress = new Uri("https://localhost:7183/"));
 builder.Services.AddHttpClient("StockApi", client => client.BaseAddress = new Uri("https://localhost:7171/"));
